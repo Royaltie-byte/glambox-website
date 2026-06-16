@@ -1,0 +1,294 @@
+.wigs {
+  position: relative;
+  width: 100%;
+  padding: var(--section-pad-y) 0;
+  background: var(--black);
+  overflow: hidden;
+}
+
+/* ── Section header ── */
+.wigs__header {
+  padding: 0 var(--section-pad-x);
+  margin-bottom: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.wigs__header .section-title {
+  line-height: 1;
+}
+
+.wigs__header .section-title span {
+  color: var(--orange);
+  font-style: italic;
+}
+
+.wigs__subtitle {
+  font-size: var(--text-base);
+  color: var(--muted);
+  max-width: 480px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Carousel track ── */
+.wigs__track {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem var(--section-pad-x) 3rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.wigs__track::-webkit-scrollbar {
+  display: none;
+}
+
+.wigs__track:active {
+  cursor: grabbing;
+}
+
+/* ── Single wig card ── */
+.wig-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  background: var(--black-lift);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  transition:
+    transform var(--duration-mid) var(--transition-silk),
+    border-color var(--duration-mid) var(--transition-silk),
+    box-shadow var(--duration-mid) var(--transition-silk);
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.wig-card.visible {
+  animation: fadeUp var(--duration-slow) var(--transition-silk) forwards;
+}
+
+.wig-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(232, 101, 10, 0.4);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 30px var(--orange-glow);
+}
+
+/* ── Tag ── */
+.wig-card__tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--orange);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+
+/* ── Mannequin display area ── */
+.wig-card__display {
+  position: relative;
+  height: 260px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--black-card);
+}
+
+/* spotlight glow on hover */
+.wig-card__display::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--duration-mid) var(--transition-silk);
+}
+
+.wig-card:hover .wig-card__display::before {
+  opacity: 1;
+}
+
+/* ── CSS Mannequin head ── */
+.mannequin {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  z-index: 1;
+}
+
+.mannequin__head {
+  width: 80px;
+  height: 95px;
+  background: #1e1e1e;
+  border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
+  position: relative;
+  border: 1px solid #333;
+}
+
+.mannequin__neck {
+  width: 22px;
+  height: 28px;
+  background: #1e1e1e;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+}
+
+.mannequin__shoulder {
+  width: 90px;
+  height: 18px;
+  background: #1e1e1e;
+  border-radius: 0 0 20px 20px;
+  border: 1px solid #333;
+  border-top: none;
+}
+
+/* ── Wig hair rendered on mannequin ── */
+.mannequin__wig {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  z-index: 2;
+}
+
+.mannequin__wig-top {
+  height: 50px;
+  border-radius: 55px 55px 0 0;
+}
+
+.mannequin__wig-sides {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -4px;
+}
+
+.mannequin__wig-side {
+  width: 28px;
+  height: 120px;
+  border-radius: 0 0 14px 14px;
+}
+
+.mannequin__wig-middle {
+  width: 54px;
+  height: 130px;
+  margin-top: -124px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Card info ── */
+.wig-card__info {
+  padding: 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wig-card__name {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 300;
+  color: var(--ivory);
+  letter-spacing: 0.05em;
+}
+
+.wig-card__type {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.wig-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.wig-card__length {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--ivory-dim);
+}
+
+.wig-card__color-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* ── Scroll hint ── */
+.wigs__hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 var(--section-pad-x);
+  margin-top: 0.5rem;
+}
+
+.wigs__hint-text {
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.wigs__hint-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(232,101,10,0.3), transparent);
+  max-width: 120px;
+}
+
+.wig-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform var(--duration-slow) var(--transition-silk);
+}
+
+.wig-card:hover .wig-card__image {
+  transform: scale(1.05);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .wig-card {
+    flex: 0 0 240px;
+  }
+
+  .wig-card__display {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wig-card {
+    flex: 0 0 200px;
+  }
+}

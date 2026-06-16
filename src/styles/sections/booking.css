@@ -1,0 +1,289 @@
+.booking {
+  position: relative;
+  width: 100%;
+  padding: var(--section-pad-y) var(--section-pad-x);
+  background: var(--black);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ── Top border accent ── */
+.booking::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--orange),
+    transparent
+  );
+}
+
+/* ── Large ambient glow behind content ── */
+.booking::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(
+    ellipse,
+    rgba(232, 101, 10, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+  animation: glowPulse 5s ease-in-out infinite;
+}
+
+/* ── All content above glow ── */
+.booking__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
+  width: 100%;
+  max-width: 900px;
+}
+
+/* ── Headline ── */
+.booking__headline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.booking__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--ivory);
+}
+
+.booking__title span {
+  color: var(--orange);
+  font-style: italic;
+}
+
+.booking__sub {
+  font-size: var(--text-base);
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ── WhatsApp main CTA ── */
+.booking__whatsapp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.booking__whatsapp-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1.1rem 3rem;
+  background: #25D366;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  transition:
+    box-shadow var(--duration-mid) var(--transition-silk),
+    transform var(--duration-fast) var(--transition-silk);
+}
+
+.booking__whatsapp-btn:hover {
+  box-shadow:
+    0 0 30px rgba(37, 211, 102, 0.4),
+    0 0 80px rgba(37, 211, 102, 0.15);
+  transform: translateY(-3px);
+}
+
+.booking__whatsapp-btn:active {
+  transform: translateY(0);
+}
+
+.booking__whatsapp-icon {
+  width: 22px;
+  height: 22px;
+  fill: var(--white);
+  flex-shrink: 0;
+}
+
+.booking__phone {
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+/* ── Divider ── */
+.booking__divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 500px;
+}
+
+.booking__divider-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.booking__divider-text {
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── Social cards ── */
+.booking__socials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 1.75rem 1.5rem;
+  background: var(--black-lift);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    border-color var(--duration-mid) var(--transition-silk),
+    transform var(--duration-mid) var(--transition-silk),
+    box-shadow var(--duration-mid) var(--transition-silk);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--duration-mid) var(--transition-silk);
+  pointer-events: none;
+}
+
+/* Instagram gradient */
+.social-card--instagram::before {
+  background: radial-gradient(
+    circle at 50% 100%,
+    rgba(131, 58, 180, 0.12) 0%,
+    transparent 70%
+  );
+}
+.social-card--instagram:hover {
+  border-color: rgba(131, 58, 180, 0.4);
+  box-shadow: 0 8px 30px rgba(131, 58, 180, 0.15);
+}
+
+/* TikTok gradient */
+.social-card--tiktok::before {
+  background: radial-gradient(
+    circle at 50% 100%,
+    rgba(255, 0, 80, 0.1) 0%,
+    transparent 70%
+  );
+}
+.social-card--tiktok:hover {
+  border-color: rgba(255, 0, 80, 0.3);
+  box-shadow: 0 8px 30px rgba(255, 0, 80, 0.12);
+}
+
+/* WhatsApp gradient */
+.social-card--whatsapp::before {
+  background: radial-gradient(
+    circle at 50% 100%,
+    rgba(37, 211, 102, 0.1) 0%,
+    transparent 70%
+  );
+}
+.social-card--whatsapp:hover {
+  border-color: rgba(37, 211, 102, 0.3);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.12);
+}
+
+.social-card:hover {
+  transform: translateY(-6px);
+}
+
+.social-card:hover::before {
+  opacity: 1;
+}
+
+.social-card__icon {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.social-card__name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--ivory);
+  position: relative;
+  z-index: 1;
+}
+
+.social-card__handle {
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .booking__socials {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+
+  .booking__whatsapp-btn {
+    padding: 1rem 2rem;
+    font-size: var(--text-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .booking__title {
+    letter-spacing: 0.04em;
+  }
+}

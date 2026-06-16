@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  /* ── Colors ── */
+  --black:        #0d0d0d;
+  --black-lift:   #1a1a1a;
+  --black-card:   #2a2a2a;
+  --orange:       #E8650A;
+  --orange-dim:   #b54d06;
+  --orange-glow:  rgba(232, 101, 10, 0.15);
+  --orange-glow-strong: rgba(232, 101, 10, 0.35);
+  --ivory:        #F5F5F0;
+  --ivory-dim:    #c0bfba;
+  --muted:        #666666;
+  --white:        #ffffff;
+
+  /* ── Typography ── */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  /* ── Font sizes ── */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  2rem;
+  --text-4xl:  2.75rem;
+  --text-5xl:  3.75rem;
+  --text-6xl:  5rem;
+  --text-hero: clamp(3.5rem, 10vw, 7rem);
+
+  /* ── Spacing ── */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 10rem;
+
+  /* ── Transitions ── */
+  --transition-silk:   cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-sharp:  cubic-bezier(0.76, 0, 0.24, 1);
+  --duration-fast:   200ms;
+  --duration-mid:    400ms;
+  --duration-slow:   700ms;
+  --duration-crawl:  1200ms;
+
+  /* ── Layout ── */
+  --max-width:     1280px;
+  --section-pad-x: clamp(1.5rem, 5vw, 6rem);
+  --section-pad-y: clamp(4rem, 10vh, 8rem);
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-pill: 999px;
+
+  /* ── Marble effect ── */
+  --marble-bg: linear-gradient(
+    135deg,
+    #0d0d0d 0%,
+    #141414 25%,
+    #111111 50%,
+    #1a1a1a 75%,
+    #0d0d0d 100%
+  );
+}
