@@ -1,0 +1,248 @@
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: var(--black);
+  overflow: hidden;
+}
+
+/* ── Top border ── */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(232, 101, 10, 0.3),
+    transparent
+  );
+}
+
+/* ── Main footer body ── */
+.footer__main {
+  padding: var(--space-2xl) var(--section-pad-x) var(--space-xl);
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: var(--space-2xl);
+}
+
+/* ── Brand column ── */
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.footer__logo {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  line-height: 1;
+}
+
+.footer__logo span {
+  color: var(--orange);
+  font-style: italic;
+}
+
+.footer__tagline {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 260px;
+}
+
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: var(--space-xs);
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--text-sm);
+  color: var(--ivory-dim);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--transition-silk);
+}
+
+.footer__contact-item:hover {
+  color: var(--orange);
+}
+
+.footer__contact-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+
+/* ── Nav columns ── */
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.footer__col-title {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.footer__col-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__col-link {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--transition-silk);
+  letter-spacing: 0.02em;
+  width: fit-content;
+  position: relative;
+}
+
+.footer__col-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--orange);
+  transition: width var(--duration-mid) var(--transition-silk);
+}
+
+.footer__col-link:hover {
+  color: var(--ivory);
+}
+
+.footer__col-link:hover::after {
+  width: 100%;
+}
+
+/* ── Divider ── */
+.footer__divider {
+  height: 1px;
+  margin: 0 var(--section-pad-x);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Bottom bar ── */
+.footer__bottom {
+  padding: var(--space-md) var(--section-pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.footer__copyright {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+/* ── Royaltie credit — the craftsman's mark ── */
+.footer__credit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  opacity: 0.55;
+  transition: opacity var(--duration-mid) var(--transition-silk);
+  cursor: pointer;
+}
+
+.footer__credit:hover {
+  opacity: 1;
+}
+
+.footer__crown {
+  position: relative;
+  width: 18px;
+  height: 14px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.footer__crown svg {
+  width: 18px;
+  height: 14px;
+  fill: #c9a84c;
+  filter: drop-shadow(0 0 4px rgba(201, 168, 76, 0.6));
+  transition: filter var(--duration-mid) var(--transition-silk);
+}
+
+.footer__credit:hover .footer__crown svg {
+  filter: drop-shadow(0 0 8px rgba(201, 168, 76, 0.9));
+}
+
+.footer__credit-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.footer__credit-built {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.footer__credit-brand {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: #c9a84c;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .footer__main {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__main {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer__credit-number {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: #8a7a4a;
+}
