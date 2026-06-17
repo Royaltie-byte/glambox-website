@@ -108,8 +108,16 @@ export default function WigShowcase() {
           >
             {wig.tag && <span className="wig-card__tag">{wig.tag}</span>}
 
-            <div className="wig-card__display">
+            {/*<div className="wig-card__display">
               <MannequinHead colorHex={wig.colorHex} colorHex2={wig.colorHex2} />
+            </div>*/}
+            <div className="wig-card__display">
+                <img
+                    src={wig.image}
+                    alt={wig.name}
+                    className="wig-card__image"
+                    loading="lazy"
+                />
             </div>
 
             <div className="wig-card__info">

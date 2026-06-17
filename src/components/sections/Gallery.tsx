@@ -81,7 +81,14 @@ export default function Gallery() {
               ref={(el) => { itemRefs.current[i] = el }}
               data-index={i}
             >
-              <div className="gallery__placeholder" />
+              <div className="gallery__placeholder">
+                <img
+                    src={item.image}
+                    alt={item.label}
+                    className="gallery__img"
+                    loading="lazy"
+                />
+              </div>
               <div className="gallery__overlay">
                 <span className="gallery__item-label">{item.label}</span>
                 <span className="gallery__item-category">{item.category}</span>

@@ -217,6 +217,11 @@
   margin-top: var(--space-2xl);
 }
 
+.gallery__item:hover .gallery__img {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
 /* ── Keyframes ── */
 @keyframes shimmer {
   0%   { background-position: 200% 0; }
