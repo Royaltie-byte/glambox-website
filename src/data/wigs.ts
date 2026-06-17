@@ -10,8 +10,19 @@ export interface Wig {
   image: string
 }
 
-const img = (path: string) =>
-  new URL(path, import.meta.url).href
+{/*const img = (path: string) =>
+  new URL(path, import.meta.url).href*/}
+
+const wigImages = import.meta.glob(
+  '../assets/images/wigs/*.{jpg,jpeg,png,webp}',
+  {
+    eager: true,
+    import: 'default'
+  }
+) as Record<string, string>
+
+const img = (file: string) =>
+  wigImages[`../assets/images/wigs/${file}`]
 
 export const wigs: Wig[] = [
   {
@@ -23,7 +34,7 @@ export const wigs: Wig[] = [
     colorHex: '#0a0a0a',
     colorHex2: '#2a2a2a',
     tag: 'Bestseller',
-    image: img('../assets/images/wigs/black_c.jpg'),
+    image: img('black_c.jpg'),
   },
 
   {
@@ -35,7 +46,7 @@ export const wigs: Wig[] = [
     colorHex: '#c8860a',
     colorHex2: '#e8a020',
     tag: 'New',
-    image: img('../assets/images/wigs/blonde2.jpg'),
+    image: img('blonde2.jpg'),
   },
 
   {
@@ -46,7 +57,7 @@ export const wigs: Wig[] = [
     color: 'Burgundy',
     colorHex: '#4a0a0a',
     colorHex2: '#800020',
-    image: img('../assets/images/wigs/red.jpg'),
+    image: img('red.jpg'),
   },
 
   {
@@ -58,7 +69,7 @@ export const wigs: Wig[] = [
     colorHex: '#e8e8e0',
     colorHex2: '#f5f5f0',
     tag: 'Premium',
-    image: img('../assets/images/wigs/ivory.jpg'),
+    image: img('ivory.jpg'),
   },
 
   {
@@ -69,7 +80,7 @@ export const wigs: Wig[] = [
     color: 'Dark Brown',
     colorHex: '#2c1a0e',
     colorHex2: '#4a2f1a',
-    image: img('../assets/images/wigs/blonde.jpg'),
+    image: img('blonde.jpg'),
   },
 
   {
@@ -81,6 +92,6 @@ export const wigs: Wig[] = [
     colorHex: '#6b2000',
     colorHex2: '#E8650A',
     tag: 'Limited',
-    image: img('../assets/images/wigs/maroonish.jpg'),
+    image: img('maroonish.jpg'),
   },
 ]
