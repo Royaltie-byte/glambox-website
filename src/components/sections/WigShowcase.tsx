@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { wigs } from '../../data/wigs'
 import '../../styles/sections/wig-showcase.css'
 
-function MannequinHead({ colorHex, colorHex2 }: { colorHex: string; colorHex2?: string }) {
+{/*function MannequinHead({ colorHex, colorHex2 }: { colorHex: string; colorHex2?: string }) {
   const c2 = colorHex2 ?? colorHex
   return (
     <div className="mannequin">
@@ -28,7 +28,7 @@ function MannequinHead({ colorHex, colorHex2 }: { colorHex: string; colorHex2?: 
       <div className="mannequin__shoulder" />
     </div>
   )
-}
+}*/}
 
 export default function WigShowcase() {
   const trackRef = useRef<HTMLDivElement>(null)
