@@ -6,7 +6,7 @@ import Gallery from './components/sections/Gallery'
 import FindUs from './components/sections/FindUs'
 import Booking from './components/sections/Booking'
 import Footer from './components/layout/Footer'
-import WhatsAppFloat from './components/ui/WhatsappFloat'
+import SocialFab from './components/ui/SocialFab'
 
 function App() {
   return (
@@ -21,8 +21,7 @@ function App() {
         <Booking />
       </main>
       <Footer />
-      <WhatsAppFloat/>
-      
+      <SocialFab />
     </>
   )
 }

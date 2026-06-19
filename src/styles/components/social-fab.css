@@ -1,0 +1,202 @@
+.fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ── Individual action buttons ── */
+.fab__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.4s var(--transition-bounce),
+    opacity 0.3s var(--transition-silk),
+    box-shadow 0.3s var(--transition-silk);
+}
+
+.fab__item:hover {
+  transform: scale(1.1) translateX(-2px);
+}
+
+.fab__item:active {
+  transform: scale(0.95);
+}
+
+.fab__item svg {
+  width: 24px;
+  height: 24px;
+  fill: #ffffff;
+  pointer-events: none;
+}
+
+/* ── Brand colors per item ── */
+.fab__item--whatsapp  { background: #25D366; }
+.fab__item--call      { background: #3B82F6; }
+.fab__item--instagram {
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+.fab__item--tiktok    { background: #1a1a1a; border: 1px solid #333; }
+
+.fab__item--whatsapp:hover  { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); }
+.fab__item--call:hover      { box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5); }
+.fab__item--instagram:hover { box-shadow: 0 6px 20px rgba(220, 39, 67, 0.45); }
+.fab__item--tiktok:hover    { box-shadow: 0 6px 20px rgba(232, 101, 10, 0.35); }
+
+/* ── Staggered entrance/exit ── */
+.fab__item {
+  transform-origin: bottom center;
+}
+
+.fab__item.closed {
+  opacity: 0;
+  transform: scale(0.3) translateY(20px);
+  pointer-events: none;
+}
+
+/* stagger delays when opening */
+.fab__item:nth-child(1) { transition-delay: 0.05s; }
+.fab__item:nth-child(2) { transition-delay: 0.1s; }
+.fab__item:nth-child(3) { transition-delay: 0.15s; }
+.fab__item:nth-child(4) { transition-delay: 0.2s; }
+
+/* reverse stagger when closing */
+.fab.is-closing .fab__item:nth-child(1) { transition-delay: 0.15s; }
+.fab.is-closing .fab__item:nth-child(2) { transition-delay: 0.1s; }
+.fab.is-closing .fab__item:nth-child(3) { transition-delay: 0.05s; }
+.fab.is-closing .fab__item:nth-child(4) { transition-delay: 0s; }
+
+/* ── Toggle button ── */
+.fab__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--orange);
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 4px 20px var(--orange-glow-strong),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.4s var(--transition-bounce),
+    box-shadow 0.3s var(--transition-silk),
+    background 0.3s var(--transition-silk);
+  position: relative;
+  animation: fabEntrance 0.6s var(--transition-bounce) 2s both;
+}
+
+.fab__toggle:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 6px 28px var(--orange-glow-strong),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.fab__toggle:active {
+  transform: scale(0.95);
+}
+
+/* ── Icon swap inside toggle ── */
+.fab__toggle-icon {
+  position: relative;
+  width: 26px;
+  height: 26px;
+}
+
+.fab__toggle-icon svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  fill: #ffffff;
+  transition:
+    opacity 0.25s var(--transition-silk),
+    transform 0.35s var(--transition-bounce);
+}
+
+.fab__icon-message {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.fab__icon-close {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+.fab.is-open .fab__icon-message {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+.fab.is-open .fab__icon-close {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* ── Pulse ring on toggle (only when closed) ── */
+.fab__toggle::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--orange-glow-strong);
+  animation: fabPulse 2.5s ease-out infinite;
+  pointer-events: none;
+}
+
+.fab.is-open .fab__toggle::before {
+  animation: none;
+  opacity: 0;
+}
+
+/* ── Keyframes ── */
+@keyframes fabEntrance {
+  0%   { opacity: 0; transform: translateY(40px) scale(0.8); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fabPulse {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  70%  { transform: scale(1.25); opacity: 0;  }
+  100% { transform: scale(1.25); opacity: 0;  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .fab {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    gap: 12px;
+  }
+
+  .fab__item {
+    width: 46px;
+    height: 46px;
+  }
+
+  .fab__item svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .fab__toggle {
+    width: 52px;
+    height: 52px;
+  }
+}
