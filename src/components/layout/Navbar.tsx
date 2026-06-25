@@ -1,16 +1,25 @@
 import { useState, useEffect } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import '../../styles/components/navbar.css'
+import glamboxLogo from '../../assets/images/glambox-logo.png'
+
+
 
 const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'Wigs',     href: '#wigs'     },
-  { label: 'Gallery',  href: '#gallery'  },
-  { label: 'Find Us',  href: '#location' },
+  { label: 'Wigs',     path: '/wigs'     },
+  { label: 'Scents',   path: '/scents'   },
+  { label: 'Lashes',   path: '/lashes'   },
+  { label: 'Braiding', path: '/braiding' },
+  { label: 'Manicure', path: '/manicure' },
+  { label: 'Makeup',   path: '/makeup'   },
+  { label: 'Gallery',  path: '/gallery'  },
 ]
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false)
-  const [menuOpen, setMenuOpen]   = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -18,15 +27,20 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  const handleNav = (href: string) => {
+  // close mobile menu and scroll to top whenever route changes
+  useEffect(() => {
     setMenuOpen(false)
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
+  }, [location.pathname])
+
+  const handleNav = (path: string) => {
+    setMenuOpen(false)
+    navigate(path)
   }
 
   const handleBooking = () => {
@@ -38,30 +52,29 @@ export default function Navbar() {
     <>
       <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
 
-        {/* Logo */}
-        <div className="navbar__logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          Glam <span>Box</span>
+        
+        <div className="navbar__logo" onClick={() => navigate('/')}>
+          <img src={glamboxLogo} alt="GlamBox" className="navbar__logo-img" />
+          <span className="navbar__logo-text">Glam<span>Box</span></span>
         </div>
 
-        {/* Desktop links */}
+
         <div className="navbar__links">
           {navLinks.map(link => (
             <span
               key={link.label}
               className="navbar__link"
-              onClick={() => handleNav(link.href)}
+              onClick={() => handleNav(link.path)}
             >
               {link.label}
             </span>
           ))}
         </div>
 
-        {/* Desktop book button */}
         <button className="navbar__book" onClick={handleBooking}>
           Book Now
         </button>
 
-        {/* Hamburger */}
         <div
           className={`navbar__hamburger ${menuOpen ? 'open' : ''}`}
           onClick={() => setMenuOpen(prev => !prev)}
@@ -74,13 +87,12 @@ export default function Navbar() {
 
       </nav>
 
-      {/* Mobile full-screen menu */}
       <div className={`navbar__mobile ${menuOpen ? 'open' : ''}`}>
         {navLinks.map(link => (
           <span
             key={link.label}
             className="navbar__mobile-link"
-            onClick={() => handleNav(link.href)}
+            onClick={() => handleNav(link.path)}
           >
             {link.label}
           </span>

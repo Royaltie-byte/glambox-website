@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import '../../styles/components/footer.css'
 
 const CrownIcon = () => (
@@ -11,8 +12,11 @@ const CrownIcon = () => (
 )
 
 export default function Footer() {
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' })
+  const navigate = useNavigate()
+
+  const goTo = (path: string) => {
+    navigate(path)
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
   }
 
   const handleBooking = () => {
@@ -26,7 +30,7 @@ export default function Footer() {
 
         <div className="footer__brand">
           <div className="footer__logo">
-            Glam <span>Box</span>
+            Glam<span>Box</span>
           </div>
           <p className="footer__tagline">
             Nairobi's finest beauty experience. Where every detail
@@ -52,31 +56,30 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* ── Services column — now real routes ── */}
         <div className="footer__col">
           <span className="footer__col-title">Services</span>
           <div className="footer__col-links">
-            {['Makeup', 'Lashes', 'Braiding', 'Wig Installation', 'Scents', 'Manicure'].map(s => (
-              <span key={s} className="footer__col-link" onClick={() => scrollTo('#services')}>
-                {s}
-              </span>
-            ))}
+            <span className="footer__col-link" onClick={() => goTo('/wigs')}>Wigs</span>
+            <span className="footer__col-link" onClick={() => goTo('/scents')}>Scents</span>
+            <span className="footer__col-link" onClick={() => goTo('/lashes')}>Lashes</span>
+            <span className="footer__col-link" onClick={() => goTo('/braiding')}>Braiding</span>
+            <span className="footer__col-link" onClick={() => goTo('/manicure')}>Manicure</span>
+            <span className="footer__col-link" onClick={() => goTo('/makeup')}>Makeup</span>
           </div>
         </div>
 
+        {/* ── Quick links column ── */}
         <div className="footer__col">
           <span className="footer__col-title">Quick Links</span>
           <div className="footer__col-links">
 
-            <span className="footer__col-link" onClick={() => scrollTo('#wigs')}>
-              Wig Collection
+            <span className="footer__col-link" onClick={() => goTo('/')}>
+              Home
             </span>
 
-            <span className="footer__col-link" onClick={() => scrollTo('#services')}>
-              Our Services
-            </span>
-
-            <span className="footer__col-link" onClick={() => scrollTo('#booking')}>
-              Book Now
+            <span className="footer__col-link" onClick={() => goTo('/gallery')}>
+              Gallery
             </span>
 
             <span className="footer__col-link" onClick={handleBooking}>

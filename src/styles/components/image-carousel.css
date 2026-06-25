@@ -1,0 +1,139 @@
+.img-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.img-carousel__track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform var(--duration-mid) var(--transition-silk);
+}
+
+.img-carousel__slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.img-carousel__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background: var(--black-card);
+  transform: scale(1.12);
+}
+
+.img-carousel__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--black-card);
+  color: var(--muted);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Label tag on image (Front / Side / Back) ── */
+.img-carousel__label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  background: rgba(13, 13, 13, 0.6);
+  backdrop-filter: blur(6px);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── Arrow nav (desktop) ── */
+.img-carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13, 13, 13, 0.55);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity var(--duration-fast) var(--transition-silk),
+    background var(--duration-fast) var(--transition-silk);
+}
+
+.img-carousel:hover .img-carousel__arrow {
+  opacity: 1;
+}
+
+.img-carousel__arrow:hover {
+  background: var(--orange);
+}
+
+.img-carousel__arrow svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--ivory);
+}
+
+.img-carousel__arrow--left  { left: 10px; }
+.img-carousel__arrow--right { right: 10px; }
+
+/* ── Dots / breadcrumbs ── */
+.img-carousel__dots {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.img-carousel__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition:
+    background var(--duration-fast) var(--transition-silk),
+    width var(--duration-mid) var(--transition-silk);
+}
+
+.img-carousel__dot.active {
+  background: var(--orange);
+  width: 18px;
+  border-radius: var(--radius-pill);
+}
+
+/* ── Mobile: always show arrows lightly, since hover doesn't exist ── */
+@media (max-width: 768px) {
+  .img-carousel__arrow {
+    opacity: 0.7;
+  }
+}

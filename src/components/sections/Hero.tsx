@@ -20,7 +20,7 @@ export default function Hero() {
 
         {/* Main title */}
         <h1 className="hero__title">
-          Glam <span>Box</span>
+          Glam<span>Box</span>
         </h1>
 
         {/* Tagline */}
