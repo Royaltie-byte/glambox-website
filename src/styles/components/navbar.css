@@ -167,11 +167,11 @@
 }
 
 .navbar__mobile-link {
-  font-family: var(--font-display);
-  font-size: var(--text-4xl);
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
   color: var(--ivory-dim);
   cursor: pointer;
   transition:
