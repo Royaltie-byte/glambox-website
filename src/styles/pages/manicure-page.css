@@ -71,12 +71,12 @@
   height: 100%;
   object-fit: contain;
   object-position: center;
-  transform: scale(1.08);
+  transform: scale(1.35);
   transition: transform var(--duration-slow) var(--transition-silk);
 }
 
 .nail-card:hover .nail-card__image {
-  transform: scale(1.14);
+  transform: scale(1.4);
 }
 
 .nail-card__image-placeholder {

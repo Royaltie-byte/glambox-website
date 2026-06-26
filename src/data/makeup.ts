@@ -26,7 +26,7 @@ export const makeupServices: MakeupService[] = [
     description: 'A soft, natural look that enhances your features for daily wear or casual outings.',
     price: 1500,
     duration: '~45 mins',
-    image: img('makeup-everyday.jpg'),
+    image: img('glam.jpg'),
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ export const makeupServices: MakeupService[] = [
     description: 'Bold, dramatic, and camera-ready — perfect for parties and big nights out.',
     price: 2500,
     duration: '~1 hr',
-    image: img('makeup-full-glam.jpg'),
+    image: img('full-glam.jpg'),
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ export const makeupServices: MakeupService[] = [
     price: 5000,
     duration: '~1.5-2 hrs',
     note: 'Trial session recommended before the big day',
-    image: img('makeup-bridal.jpg'),
+    image: img('bridal.jpg'),
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ export const makeupServices: MakeupService[] = [
     price: 2500,
     duration: '~45 mins each',
     note: 'Minimum 3 people for group booking',
-    image: img('makeup-bridal-party.jpg'),
+    image: img('bridal-party.jpg'),
   },
   {
     id: 5,
@@ -60,7 +60,7 @@ export const makeupServices: MakeupService[] = [
     description: 'Bold, creative makeup designed to make a statement in front of the camera.',
     price: 3000,
     duration: '~1.5 hrs',
-    image: img('makeup-editorial.jpg'),
+    image: img('editorial.jpg'),
   },
   {
     id: 6,
@@ -68,6 +68,6 @@ export const makeupServices: MakeupService[] = [
     description: 'Full glam makeup paired with a flawless lash application — the complete look.',
     price: 3500,
     duration: '~1.5 hrs',
-    image: img('makeup-lashes-combo.jpg'),
+    image: img('mixture.jpg'),
   },
 ]

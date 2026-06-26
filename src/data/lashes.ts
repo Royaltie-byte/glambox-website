@@ -25,7 +25,7 @@ export const lashes: LashService[] = [
     description: 'A natural, one-to-one extension look that adds length and subtle definition.',
     price: 2000,
     duration: '~1.5 hrs',
-    image: img('lash-classic.jpg'),
+    image: img('classic.jpg'),
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ export const lashes: LashService[] = [
     description: 'A textured blend of classic and volume techniques for a fuller, natural finish.',
     price: 3000,
     duration: '~1.5 hrs',
-    image: img('lash-hybrid.jpg'),
+    image: img('Hybrid.jpg'),
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ export const lashes: LashService[] = [
     description: 'Multiple lightweight extensions fanned per lash for a dramatic, fluffy look.',
     price: 4000,
     duration: '~2 hrs',
-    image: img('lash-volume.jpg'),
+    image: img('Volume.jpg'),
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ export const lashes: LashService[] = [
     description: 'Maximum density and drama — the boldest, most glamorous lash look we offer.',
     price: 5000,
     duration: '~2.5 hrs',
-    image: img('lash-mega-volume.jpg'),
+    image: img('mega.jpg'),
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ export const lashes: LashService[] = [
     description: 'A fluttery, textured style mixing lengths for a soft, voluminous flutter.',
     price: 3500,
     duration: '~2 hrs',
-    image: img('lash-wispy.jpg'),
+    image: img('wispy.jpg'),
   },
   {
     id: 6,
@@ -65,6 +65,6 @@ export const lashes: LashService[] = [
     description: 'Quick, glam strip lashes — perfect for a single event, party or photoshoot.',
     price: 500,
     duration: '~15 mins',
-    image: img('lash-strip.jpg'),
+    image: img('strip.jpg'),
   },
 ]

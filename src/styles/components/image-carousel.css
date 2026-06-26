@@ -27,7 +27,7 @@
   object-position: center;
   display: block;
   background: var(--black-card);
-  transform: scale(1.12);
+  transform: scale(1.25);
 }
 
 .img-carousel__placeholder {

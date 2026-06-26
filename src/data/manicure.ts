@@ -9,7 +9,7 @@ export interface NailService {
 }
 
 const manicureImages = import.meta.glob(
-  '../assets/images/manicure/*.{jpg,jpeg,png,webp}',
+  '../assets/images/nails/*.{jpg,jpeg,png,webp}',
   {
     eager: true,
     import: 'default'
@@ -17,7 +17,7 @@ const manicureImages = import.meta.glob(
 ) as Record<string, string>
 
 const img = (file: string) =>
-  manicureImages[`../assets/images/manicure/${file}`]
+  manicureImages[`../assets/images/nails/${file}`]
 
 export const nailServices: NailService[] = [
   {
@@ -26,7 +26,7 @@ export const nailServices: NailService[] = [
     description: 'Nail shaping, cuticle care, and a fresh coat of polish in your color of choice.',
     price: 700,
     duration: '~45 mins',
-    image: img('nail-classic.jpg'),
+    image: img('classic.jpg'),
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ export const nailServices: NailService[] = [
     description: 'Chip-free, long-lasting gel polish with a glossy, mirror-like finish.',
     price: 1500,
     duration: '~1 hr',
-    image: img('nail-gel.jpg'),
+    image: img('gel.jpg'),
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ export const nailServices: NailService[] = [
     description: 'Durable nail extensions sculpted to your preferred length and shape.',
     price: 2500,
     duration: '~1.5 hrs',
-    image: img('nail-acrylic.jpg'),
+    image: img('acrylic.jpg'),
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ export const nailServices: NailService[] = [
     price: 300,
     duration: '~20 mins',
     note: 'Add-on to any manicure, priced per finger',
-    image: img('nail-art.jpg'),
+    image: img('art.jpg'),
   },
   {
     id: 5,
@@ -59,7 +59,7 @@ export const nailServices: NailService[] = [
     description: 'The timeless classic — clean white tips over a natural base.',
     price: 1200,
     duration: '~1 hr',
-    image: img('nail-french.jpg'),
+    image: img('french.jpg'),
   },
   {
     id: 6,
@@ -67,6 +67,6 @@ export const nailServices: NailService[] = [
     description: 'A relaxing foot soak, exfoliation, massage, and polish to finish.',
     price: 1000,
     duration: '~45 mins',
-    image: img('nail-pedicure.jpg'),
+    image: img('pedicure.jpg'),
   },
 ]
