@@ -190,7 +190,7 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   .scents-page__grid {
     grid-template-columns: 1fr;
     gap: 1rem;
